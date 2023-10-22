@@ -22,10 +22,16 @@ As we look out the window today in mid-autumn, the leaves are turning multiple c
 
 Ultimately, we would like to create a better experience for people who want to be out in nature and enjoy our park resources through this web application.
 
+## Icon/Logo  
+
+![985a4470-2506-4270-89a9-50e6340898ef](https://github.com/beyrer/IS7024FinalProject/assets/88552005/3a55302a-d57f-4ee4-86c3-15473b3e651e)
+
 ## Storyboard
 
 ### Planned Screens/Views
-[--Pending-- Storyboard]()  
+![Wireframe PP](https://github.com/beyrer/IS7024/assets/88552005/e856fdd1-801b-49b3-bbfb-3865f5831321)
+
+[WireframePP](https://whiteboard.office.com/me/whiteboards/p/c3BvOmh0dHBzOi8vbWFpbHVjLW15LnNoYXJlcG9pbnQuY29tL3BlcnNvbmFsL2JleXJlcmpsX21haWxfdWNfZWR1/b!EOSXDY993kSvqBhyr8vYCPeGUG2lOxNAtvpDuC7X9QXv1ZECSrzBSrvpeh-cKmYK/01U5X6VGB4PIU2MRR4UZAJKBTKACYJ3YWB)  
 
 ### Planned Widgets  
 - Distance Calculator
@@ -33,8 +39,7 @@ Ultimately, we would like to create a better experience for people who want to b
 - Park Status and or Hours of Operation.
 
 ## Projects  
--	Name of project/sln file
--	GitHub Projects
+-	[ParkPlanner](https://github.com/beyrer/IS7024FinalProject/tree/main/ParkPlanner)
 -	[Jira Board for ParkPlanner.com](https://parkprojectis7024.atlassian.net/jira/core/projects/PAR/board)
 
 ## Requirements  
@@ -50,9 +55,9 @@ Ultimately, we would like to create a better experience for people who want to b
 ## Team Composition  
 
 ### Team Members
-- Neil Bechman
-- Jameson Zink
-- Jessie Beyrer
+- Neil Bechmann (Data Guru)
+- Jameson Zink (Developer/ProjectManager/ScrumGenius/AQ)
+- Jessie Beyrer (Code Monkey)
 
 ### Meeting Cadence
 - Weekly meetings Saturdays at 5 pm
