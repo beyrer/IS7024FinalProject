@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jameson-PC\\Documents\\IS 7024\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj": {}
+    "C:\\Users\\Jessie\\SkyDrive\\Desktop\\MSIS program\\IS7024 - XML and Web Services\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jameson-PC\\Documents\\IS 7024\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj": {
+    "C:\\Users\\Jessie\\SkyDrive\\Desktop\\MSIS program\\IS7024 - XML and Web Services\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jameson-PC\\Documents\\IS 7024\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
+        "projectUniqueName": "C:\\Users\\Jessie\\SkyDrive\\Desktop\\MSIS program\\IS7024 - XML and Web Services\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
         "projectName": "ParkPlanner",
-        "projectPath": "C:\\Users\\Jameson-PC\\Documents\\IS 7024\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
-        "packagesPath": "C:\\Users\\Jameson-PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jameson-PC\\Documents\\IS 7024\\IS7024FinalProject\\ParkPlanner\\obj\\",
+        "projectPath": "C:\\Users\\Jessie\\SkyDrive\\Desktop\\MSIS program\\IS7024 - XML and Web Services\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
+        "packagesPath": "C:\\Users\\Jessie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jessie\\SkyDrive\\Desktop\\MSIS program\\IS7024 - XML and Web Services\\IS7024FinalProject\\ParkPlanner\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Jameson-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jessie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
