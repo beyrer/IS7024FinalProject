@@ -36,7 +36,7 @@ Ultimately, we would like to create a better experience for people who want to b
 ### Planned Widgets  
 - Distance Calculator
 - Weather Conditions at Park
-- Park Status and or Hours of Operation.
+- Park Status, Hours of Operation, etc.
 
 ## Projects  
 -	[ParkPlanner](https://github.com/beyrer/IS7024FinalProject/tree/main/ParkPlanner)
