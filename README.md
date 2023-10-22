@@ -43,9 +43,38 @@ Ultimately, we would like to create a better experience for people who want to b
 -	[Jira Board for ParkPlanner.com](https://parkprojectis7024.atlassian.net/jira/core/projects/PAR/board)
 
 ## Requirements  
+A centralized and convenient location of park data so that I can plan visits to various parks.
+### Requirement 1  
+---
+#### Scenario
+As a user, I want to be able to serach for Distance guide to parks from my current location.
 
--	As a user, I want a centralized location of park data so that I can plan visits to various parks.
--	As a user, 
+#### Dependencies  
+Park location data is available and accessible
+
+#### Assumptions  
+Park data is in a format that can be mapped or measured to current location.
+
+#### Example
+Given park data is available  
+When I search for a park
+Then I should then be able to receive the distance to that particular park.
+
+### Requirement 2  
+---  
+#### Scenario
+As a user I want to be able to post and review information about a specific park.
+
+#### Dependencies  
+Park data is available and accessible
+
+#### Assumptions  
+Website can record user reviews of parks and associated facilities to Park Planner
+
+#### Example
+Given park data is available  
+When I search for a park
+Then I should be able to post that review to Park Planner.
 
 ## Data Sources
 
