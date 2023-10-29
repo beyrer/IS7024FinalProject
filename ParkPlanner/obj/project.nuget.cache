@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0m/LZQSB1MwD+SWjdtE93r6fcncffgsMW2+qQ429GGMyyb4R8RDJJi68K1+/BK4b4y2j19JFYfEsCiGtOCQF6Q==",
+  "dgSpecHash": "PVdFBRi8gTrzTbHaO9veUnctMaulg7iSNK7B2yT1C1UxvwBMX9wxzbuIXi/NF8AKNmrJ65ocXthFArNk2610+A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jessie\\SkyDrive\\Desktop\\MSIS program\\IS7024 - XML and Web Services\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\Jessie\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Jessie\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Jessie\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Jessie\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Jessie\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\Jessie\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\Jessie\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
