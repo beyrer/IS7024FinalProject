@@ -2,11 +2,11 @@
 //
 // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using ParkPlanner;
+//    using ParkPlannerAddresses;
 //
 //    var facilitiesAddresses = FacilitiesAddresses.FromJson(jsonString);
 
-namespace ParkPlanner
+namespace ParkPlannerAddresses
 {
     using System;
     using System.Collections.Generic;
@@ -71,12 +71,12 @@ namespace ParkPlanner
 
     public partial class FacilitiesAddresses
     {
-        public static FacilitiesAddresses[] FromJson(string json) => JsonConvert.DeserializeObject<FacilitiesAddresses[]>(json, ParkPlanner.Converter.Settings);
+        public static List<FacilitiesAddresses> FromJson(string json) => JsonConvert.DeserializeObject<List<FacilitiesAddresses>>(json, ParkPlannerAddresses.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this FacilitiesAddresses[] self) => JsonConvert.SerializeObject(self, ParkPlanner.Converter.Settings);
+        public static string ToJson(this List<FacilitiesAddresses> self) => JsonConvert.SerializeObject(self, ParkPlannerAddresses.Converter.Settings);
     }
 
     internal static class Converter
