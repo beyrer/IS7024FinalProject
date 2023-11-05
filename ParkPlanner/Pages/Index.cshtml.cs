@@ -15,6 +15,18 @@ namespace ParkPlanner.Pages
         public void OnGet()
         {
 
+            var task = client.GetAsync("https://ridb.recreation.gov/api/v1/facilityaddresses?limit=50&offset=0\r\n")
+                HttpsResponseMessage result = task.Result;
+            if (result.IsSuccessStatusCode) 
+            {
+                result.Content.ReadAsStringAsync()
+                Facilities.FromJson();
+
+            }
+            
+
         }
+
+
     }
 }
