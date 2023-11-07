@@ -17,160 +17,242 @@ namespace ParkPlanner
 
     public partial class Facilities
     {
-        [JsonProperty("METADATA")]
-        public Metadata Metadata { get; set; }
-
-        [JsonProperty("RECDATA")]
-        public List<Recdatum> Recdata { get; set; }
-    }
-
-    public partial class Metadata
-    {
-        [JsonProperty("RESULTS")]
-        public Results Results { get; set; }
-
-        [JsonProperty("SEARCH_PARAMETERS")]
-        public SearchParameters SearchParameters { get; set; }
-    }
-
-    public partial class Results
-    {
-        [JsonProperty("CURRENT_COUNT")]
-        public long CurrentCount { get; set; }
-
-        [JsonProperty("TOTAL_COUNT")]
-        public long TotalCount { get; set; }
-    }
-
-    public partial class SearchParameters
-    {
-        [JsonProperty("LIMIT")]
-        public long Limit { get; set; }
-
-        [JsonProperty("OFFSET")]
-        public long Offset { get; set; }
-
-        [JsonProperty("QUERY")]
-        public string Query { get; set; }
-    }
-
-    public partial class Recdatum
-    {
-        [JsonProperty("ACTIVITY")]
-        public List<object> Activity { get; set; }
-
-        [JsonProperty("CAMPSITE")]
-        public List<object> Campsite { get; set; }
-
-        [JsonProperty("EVENT")]
-        public List<object> Event { get; set; }
-
-        [JsonProperty("Enabled")]
-        public bool Enabled { get; set; }
-
-        [JsonProperty("FACILITYADDRESS")]
-        public List<object> Facilityaddress { get; set; }
-
-        [JsonProperty("FacilityAdaAccess")]
-        public FacilityAdaAccess FacilityAdaAccess { get; set; }
-
-        [JsonProperty("FacilityDescription")]
-        public string FacilityDescription { get; set; }
-
-        [JsonProperty("FacilityDirections")]
-        public string FacilityDirections { get; set; }
-
-        [JsonProperty("FacilityEmail")]
-        public FacilityEmail FacilityEmail { get; set; }
-
         [JsonProperty("FacilityID")]
         [JsonConverter(typeof(ParseStringConverter))]
         public long FacilityId { get; set; }
 
-        [JsonProperty("FacilityLatitude")]
-        public double FacilityLatitude { get; set; }
-
-        [JsonProperty("FacilityLongitude")]
-        public double FacilityLongitude { get; set; }
-
-        [JsonProperty("FacilityMapURL")]
-        public string FacilityMapUrl { get; set; }
-
-        [JsonProperty("FacilityName")]
-        public string FacilityName { get; set; }
-
-        [JsonProperty("FacilityPhone")]
-        public string FacilityPhone { get; set; }
-
-        [JsonProperty("FacilityReservationURL")]
-        public string FacilityReservationUrl { get; set; }
-
-        [JsonProperty("FacilityTypeDescription")]
-        public FacilityTypeDescription FacilityTypeDescription { get; set; }
-
-        [JsonProperty("FacilityUseFeeDescription")]
-        public string FacilityUseFeeDescription { get; set; }
-
-        [JsonProperty("GEOJSON")]
-        public Geojson Geojson { get; set; }
-
-        [JsonProperty("Keywords")]
-        public string Keywords { get; set; }
-
-        [JsonProperty("LINK")]
-        public List<object> Link { get; set; }
-
-        [JsonProperty("LastUpdatedDate")]
-        public DateTimeOffset LastUpdatedDate { get; set; }
-
         [JsonProperty("LegacyFacilityID")]
-        public string LegacyFacilityId { get; set; }
-
-        [JsonProperty("MEDIA")]
-        public List<Media> Media { get; set; }
-
-        [JsonProperty("ORGANIZATION")]
-        public List<object> Organization { get; set; }
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long LegacyFacilityId { get; set; }
 
         [JsonProperty("OrgFacilityID")]
         public string OrgFacilityId { get; set; }
-
-        [JsonProperty("PERMITENTRANCE")]
-        public List<object> Permitentrance { get; set; }
 
         [JsonProperty("ParentOrgID")]
         [JsonConverter(typeof(ParseStringConverter))]
         public long ParentOrgId { get; set; }
 
         [JsonProperty("ParentRecAreaID")]
-        public string ParentRecAreaId { get; set; }
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long ParentRecAreaId { get; set; }
 
-        [JsonProperty("RECAREA")]
-        public List<object> Recarea { get; set; }
+        [JsonProperty("FacilityName")]
+        public string FacilityName { get; set; }
+
+        [JsonProperty("FacilityDescription")]
+        public string FacilityDescription { get; set; }
+
+        [JsonProperty("FacilityTypeDescription")]
+        public string FacilityTypeDescription { get; set; }
+
+        [JsonProperty("FacilityUseFeeDescription")]
+        public string FacilityUseFeeDescription { get; set; }
+
+        [JsonProperty("FacilityDirections")]
+        public string FacilityDirections { get; set; }
+
+        [JsonProperty("FacilityPhone")]
+        public string FacilityPhone { get; set; }
+
+        [JsonProperty("FacilityEmail")]
+        public string FacilityEmail { get; set; }
+
+        [JsonProperty("FacilityReservationURL")]
+        public string FacilityReservationUrl { get; set; }
+
+        [JsonProperty("FacilityMapURL")]
+        public string FacilityMapUrl { get; set; }
+
+        [JsonProperty("FacilityAdaAccess")]
+        public string FacilityAdaAccess { get; set; }
+
+        [JsonProperty("GEOJSON")]
+        public Geojson Geojson { get; set; }
+
+        [JsonProperty("FacilityLongitude")]
+        public double FacilityLongitude { get; set; }
+
+        [JsonProperty("FacilityLatitude")]
+        public double FacilityLatitude { get; set; }
+
+        [JsonProperty("StayLimit")]
+        public string StayLimit { get; set; }
+
+        [JsonProperty("Keywords")]
+        public string Keywords { get; set; }
 
         [JsonProperty("Reservable")]
         public bool Reservable { get; set; }
 
-        [JsonProperty("StayLimit")]
-        public StayLimit StayLimit { get; set; }
+        [JsonProperty("Enabled")]
+        public bool Enabled { get; set; }
+
+        [JsonProperty("LastUpdatedDate")]
+        public DateTimeOffset LastUpdatedDate { get; set; }
+
+        [JsonProperty("CAMPSITE")]
+        public List<Campsite> Campsite { get; set; }
+
+        [JsonProperty("PERMITENTRANCE")]
+        public List<Permitentrance> Permitentrance { get; set; }
 
         [JsonProperty("TOUR")]
-        public List<object> Tour { get; set; }
+        public List<Tour> Tour { get; set; }
+
+        [JsonProperty("ORGANIZATION")]
+        public List<Organization> Organization { get; set; }
+
+        [JsonProperty("RECAREA")]
+        public List<Recarea> Recarea { get; set; }
+
+        [JsonProperty("FACILITYADDRESS")]
+        public List<Facilityaddress> Facilityaddress { get; set; }
+
+        [JsonProperty("ACTIVITY")]
+        public List<Activity> Activity { get; set; }
+
+        [JsonProperty("EVENT")]
+        public List<Event> Event { get; set; }
+
+        [JsonProperty("LINK")]
+        public List<Link> Link { get; set; }
+
+        [JsonProperty("MEDIA")]
+        public List<Media> Media { get; set; }
+    }
+
+    public partial class Activity
+    {
+        [JsonProperty("ActivityID")]
+        public string ActivityId { get; set; }
+
+        [JsonProperty("FacilityID")]
+        public string FacilityId { get; set; }
+
+        [JsonProperty("ActivityName")]
+        public string ActivityName { get; set; }
+
+        [JsonProperty("FacilityActivityDescription")]
+        public string FacilityActivityDescription { get; set; }
+
+        [JsonProperty("FacilityActivityFeeDescription")]
+        public string FacilityActivityFeeDescription { get; set; }
+    }
+
+    public partial class Campsite
+    {
+        [JsonProperty("CampsiteID")]
+        public string CampsiteId { get; set; }
+
+        [JsonProperty("CampsiteName")]
+        public string CampsiteName { get; set; }
+
+        [JsonProperty("ResourceLink")]
+        public string ResourceLink { get; set; }
+    }
+
+    public partial class Event
+    {
+        [JsonProperty("EventID")]
+        public string EventId { get; set; }
+
+        [JsonProperty("EventName")]
+        public string EventName { get; set; }
+
+        [JsonProperty("ResourceLink")]
+        public string ResourceLink { get; set; }
+    }
+
+    public partial class Facilityaddress
+    {
+        [JsonProperty("FacilityAddressID")]
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long FacilityAddressId { get; set; }
+
+        [JsonProperty("FacilityID")]
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long FacilityId { get; set; }
+
+        [JsonProperty("FacilityAddressType")]
+        public string FacilityAddressType { get; set; }
+
+        [JsonProperty("FacilityStreetAddress1")]
+        public string FacilityStreetAddress1 { get; set; }
+
+        [JsonProperty("FacilityStreetAddress2")]
+        public string FacilityStreetAddress2 { get; set; }
+
+        [JsonProperty("FacilityStreetAddress3")]
+        public string FacilityStreetAddress3 { get; set; }
+
+        [JsonProperty("City")]
+        public string City { get; set; }
+
+        [JsonProperty("PostalCode")]
+        public string PostalCode { get; set; }
+
+        [JsonProperty("AddressStateCode")]
+        public string AddressStateCode { get; set; }
+
+        [JsonProperty("AddressCountryCode")]
+        public string AddressCountryCode { get; set; }
+
+        [JsonProperty("LastUpdatedDate")]
+        public DateTimeOffset LastUpdatedDate { get; set; }
     }
 
     public partial class Geojson
     {
+        [JsonProperty("TYPE")]
+        public string Type { get; set; }
+
         [JsonProperty("COORDINATES")]
         public List<double> Coordinates { get; set; }
+    }
 
-        [JsonProperty("TYPE")]
-        public TypeEnum Type { get; set; }
+    public partial class Link
+    {
+        [JsonProperty("EntityLinkID")]
+        public string EntityLinkId { get; set; }
+
+        [JsonProperty("LinkType")]
+        public string LinkType { get; set; }
+
+        [JsonProperty("EntityID")]
+        public string EntityId { get; set; }
+
+        [JsonProperty("EntityType")]
+        public string EntityType { get; set; }
+
+        [JsonProperty("Title")]
+        public string Title { get; set; }
+
+        [JsonProperty("Description")]
+        public string Description { get; set; }
+
+        [JsonProperty("URL")]
+        public string Url { get; set; }
     }
 
     public partial class Media
     {
-        [JsonProperty("Credits")]
-        public Credits Credits { get; set; }
+        [JsonProperty("EntityMediaID")]
+        public string EntityMediaId { get; set; }
+
+        [JsonProperty("MediaType")]
+        public string MediaType { get; set; }
+
+        [JsonProperty("EntityID")]
+        public string EntityId { get; set; }
+
+        [JsonProperty("EntityType")]
+        public string EntityType { get; set; }
+
+        [JsonProperty("Title")]
+        public string Title { get; set; }
+
+        [JsonProperty("Subtitle")]
+        public string Subtitle { get; set; }
 
         [JsonProperty("Description")]
         public string Description { get; set; }
@@ -178,75 +260,108 @@ namespace ParkPlanner
         [JsonProperty("EmbedCode")]
         public string EmbedCode { get; set; }
 
-        [JsonProperty("EntityID")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long EntityId { get; set; }
-
-        [JsonProperty("EntityMediaID")]
-        public EntityMediaId EntityMediaId { get; set; }
-
-        [JsonProperty("EntityType")]
-        public FacilityTypeDescription EntityType { get; set; }
-
         [JsonProperty("Height")]
         public long Height { get; set; }
 
-        [JsonProperty("IsGallery")]
-        public bool IsGallery { get; set; }
-
-        [JsonProperty("IsPreview")]
-        public bool IsPreview { get; set; }
+        [JsonProperty("Width")]
+        public long Width { get; set; }
 
         [JsonProperty("IsPrimary")]
         public bool IsPrimary { get; set; }
 
-        [JsonProperty("MediaType")]
-        public MediaType MediaType { get; set; }
+        [JsonProperty("IsPreview")]
+        public bool IsPreview { get; set; }
 
-        [JsonProperty("Subtitle")]
-        public string Subtitle { get; set; }
-
-        [JsonProperty("Title")]
-        public string Title { get; set; }
+        [JsonProperty("IsGallery")]
+        public bool IsGallery { get; set; }
 
         [JsonProperty("URL")]
-        public Uri Url { get; set; }
+        public string Url { get; set; }
 
-        [JsonProperty("Width")]
-        public long Width { get; set; }
+        [JsonProperty("Credits")]
+        public string Credits { get; set; }
     }
 
-    public enum FacilityAdaAccess { AdaAccessibleRestrooms, Empty, N };
-
-    public enum FacilityEmail { Empty, GjfoWebmailBlmGov, InfoSiEdu, KfoWebmailBlmGov, SmFsMrnraUsdaGov };
-
-    public enum FacilityTypeDescription { Campground, Facility };
-
-    public enum TypeEnum { Empty, Point };
-
-    public enum Credits { Empty, Landis, MichaelJTuttle, PgeParks };
-
-    public enum MediaType { Image };
-
-    public enum StayLimit { DayUseOnly, Empty, The14DayStayLimit };
-
-    public partial struct EntityMediaId
+    public partial class Organization
     {
-        public long? Integer;
-        public Guid? Uuid;
+        [JsonProperty("OrgID")]
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long OrgId { get; set; }
 
-        public static implicit operator EntityMediaId(long Integer) => new EntityMediaId { Integer = Integer };
-        public static implicit operator EntityMediaId(Guid Uuid) => new EntityMediaId { Uuid = Uuid };
+        [JsonProperty("OrgName")]
+        public string OrgName { get; set; }
+
+        [JsonProperty("OrgImageURL")]
+        public string OrgImageUrl { get; set; }
+
+        [JsonProperty("OrgURLText")]
+        public string OrgUrlText { get; set; }
+
+        [JsonProperty("OrgURLAddress")]
+        public Uri OrgUrlAddress { get; set; }
+
+        [JsonProperty("OrgType")]
+        public string OrgType { get; set; }
+
+        [JsonProperty("OrgAbbrevName")]
+        public string OrgAbbrevName { get; set; }
+
+        [JsonProperty("OrgJurisdictionType")]
+        public string OrgJurisdictionType { get; set; }
+
+        [JsonProperty("OrgParentID")]
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long OrgParentId { get; set; }
+
+        [JsonProperty("LastUpdatedDate")]
+        public DateTimeOffset LastUpdatedDate { get; set; }
+    }
+
+    public partial class Permitentrance
+    {
+        [JsonProperty("PermitEntranceID")]
+        public string PermitEntranceId { get; set; }
+
+        [JsonProperty("PermitEntranceName")]
+        public string PermitEntranceName { get; set; }
+
+        [JsonProperty("ResourceLink")]
+        public string ResourceLink { get; set; }
+    }
+
+    public partial class Recarea
+    {
+        [JsonProperty("RecAreaID")]
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long RecAreaId { get; set; }
+
+        [JsonProperty("RecAreaName")]
+        public string RecAreaName { get; set; }
+
+        [JsonProperty("ResourceLink")]
+        public string ResourceLink { get; set; }
+    }
+
+    public partial class Tour
+    {
+        [JsonProperty("TourID")]
+        public string TourId { get; set; }
+
+        [JsonProperty("TourName")]
+        public string TourName { get; set; }
+
+        [JsonProperty("ResourceLink")]
+        public string ResourceLink { get; set; }
     }
 
     public partial class Facilities
     {
-        public static Facilities FromJson(string json) => JsonConvert.DeserializeObject<Facilities>(json, ParkPlanner.Converter.Settings);
+        public static List<Facilities> FromJson(string json) => JsonConvert.DeserializeObject<List<Facilities>>(json, ParkPlanner.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this Facilities self) => JsonConvert.SerializeObject(self, ParkPlanner.Converter.Settings);
+        public static string ToJson(this List<Facilities> self) => JsonConvert.SerializeObject(self, ParkPlanner.Converter.Settings);
     }
 
     internal static class Converter
@@ -257,119 +372,9 @@ namespace ParkPlanner
             DateParseHandling = DateParseHandling.None,
             Converters =
             {
-                FacilityAdaAccessConverter.Singleton,
-                FacilityEmailConverter.Singleton,
-                FacilityTypeDescriptionConverter.Singleton,
-                TypeEnumConverter.Singleton,
-                CreditsConverter.Singleton,
-                EntityMediaIdConverter.Singleton,
-                MediaTypeConverter.Singleton,
-                StayLimitConverter.Singleton,
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
-    }
-
-    internal class FacilityAdaAccessConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(FacilityAdaAccess) || t == typeof(FacilityAdaAccess?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
-            {
-                case "":
-                    return FacilityAdaAccess.Empty;
-                case "Ada Accessible Restrooms ":
-                    return FacilityAdaAccess.AdaAccessibleRestrooms;
-                case "N":
-                    return FacilityAdaAccess.N;
-            }
-            throw new Exception("Cannot unmarshal type FacilityAdaAccess");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (FacilityAdaAccess)untypedValue;
-            switch (value)
-            {
-                case FacilityAdaAccess.Empty:
-                    serializer.Serialize(writer, "");
-                    return;
-                case FacilityAdaAccess.AdaAccessibleRestrooms:
-                    serializer.Serialize(writer, "Ada Accessible Restrooms ");
-                    return;
-                case FacilityAdaAccess.N:
-                    serializer.Serialize(writer, "N");
-                    return;
-            }
-            throw new Exception("Cannot marshal type FacilityAdaAccess");
-        }
-
-        public static readonly FacilityAdaAccessConverter Singleton = new FacilityAdaAccessConverter();
-    }
-
-    internal class FacilityEmailConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(FacilityEmail) || t == typeof(FacilityEmail?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
-            {
-                case "":
-                    return FacilityEmail.Empty;
-                case "Kfo_webmail.@blm.gov":
-                    return FacilityEmail.KfoWebmailBlmGov;
-                case "gjfo_webmail@blm.gov":
-                    return FacilityEmail.GjfoWebmailBlmGov;
-                case "info@si.edu":
-                    return FacilityEmail.InfoSiEdu;
-                case "sm.fs.mrnra@usda.gov":
-                    return FacilityEmail.SmFsMrnraUsdaGov;
-            }
-            throw new Exception("Cannot unmarshal type FacilityEmail");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (FacilityEmail)untypedValue;
-            switch (value)
-            {
-                case FacilityEmail.Empty:
-                    serializer.Serialize(writer, "");
-                    return;
-                case FacilityEmail.KfoWebmailBlmGov:
-                    serializer.Serialize(writer, "Kfo_webmail.@blm.gov");
-                    return;
-                case FacilityEmail.GjfoWebmailBlmGov:
-                    serializer.Serialize(writer, "gjfo_webmail@blm.gov");
-                    return;
-                case FacilityEmail.InfoSiEdu:
-                    serializer.Serialize(writer, "info@si.edu");
-                    return;
-                case FacilityEmail.SmFsMrnraUsdaGov:
-                    serializer.Serialize(writer, "sm.fs.mrnra@usda.gov");
-                    return;
-            }
-            throw new Exception("Cannot marshal type FacilityEmail");
-        }
-
-        public static readonly FacilityEmailConverter Singleton = new FacilityEmailConverter();
     }
 
     internal class ParseStringConverter : JsonConverter
@@ -401,263 +406,5 @@ namespace ParkPlanner
         }
 
         public static readonly ParseStringConverter Singleton = new ParseStringConverter();
-    }
-
-    internal class FacilityTypeDescriptionConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(FacilityTypeDescription) || t == typeof(FacilityTypeDescription?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
-            {
-                case "Campground":
-                    return FacilityTypeDescription.Campground;
-                case "Facility":
-                    return FacilityTypeDescription.Facility;
-            }
-            throw new Exception("Cannot unmarshal type FacilityTypeDescription");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (FacilityTypeDescription)untypedValue;
-            switch (value)
-            {
-                case FacilityTypeDescription.Campground:
-                    serializer.Serialize(writer, "Campground");
-                    return;
-                case FacilityTypeDescription.Facility:
-                    serializer.Serialize(writer, "Facility");
-                    return;
-            }
-            throw new Exception("Cannot marshal type FacilityTypeDescription");
-        }
-
-        public static readonly FacilityTypeDescriptionConverter Singleton = new FacilityTypeDescriptionConverter();
-    }
-
-    internal class TypeEnumConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(TypeEnum) || t == typeof(TypeEnum?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
-            {
-                case "":
-                    return TypeEnum.Empty;
-                case "Point":
-                    return TypeEnum.Point;
-            }
-            throw new Exception("Cannot unmarshal type TypeEnum");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (TypeEnum)untypedValue;
-            switch (value)
-            {
-                case TypeEnum.Empty:
-                    serializer.Serialize(writer, "");
-                    return;
-                case TypeEnum.Point:
-                    serializer.Serialize(writer, "Point");
-                    return;
-            }
-            throw new Exception("Cannot marshal type TypeEnum");
-        }
-
-        public static readonly TypeEnumConverter Singleton = new TypeEnumConverter();
-    }
-
-    internal class CreditsConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(Credits) || t == typeof(Credits?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
-            {
-                case "":
-                    return Credits.Empty;
-                case "Landis":
-                    return Credits.Landis;
-                case "Michael J Tuttle":
-                    return Credits.MichaelJTuttle;
-                case "PGE Parks":
-                    return Credits.PgeParks;
-            }
-            throw new Exception("Cannot unmarshal type Credits");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (Credits)untypedValue;
-            switch (value)
-            {
-                case Credits.Empty:
-                    serializer.Serialize(writer, "");
-                    return;
-                case Credits.Landis:
-                    serializer.Serialize(writer, "Landis");
-                    return;
-                case Credits.MichaelJTuttle:
-                    serializer.Serialize(writer, "Michael J Tuttle");
-                    return;
-                case Credits.PgeParks:
-                    serializer.Serialize(writer, "PGE Parks");
-                    return;
-            }
-            throw new Exception("Cannot marshal type Credits");
-        }
-
-        public static readonly CreditsConverter Singleton = new CreditsConverter();
-    }
-
-    internal class EntityMediaIdConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(EntityMediaId) || t == typeof(EntityMediaId?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            switch (reader.TokenType)
-            {
-                case JsonToken.String:
-                case JsonToken.Date:
-                    var stringValue = serializer.Deserialize<string>(reader);
-                    long l;
-                    if (Int64.TryParse(stringValue, out l))
-                    {
-                        return new EntityMediaId { Integer = l };
-                    }
-                    Guid guid;
-                    if (Guid.TryParse(stringValue, out guid))
-                    {
-                        return new EntityMediaId { Uuid = guid };
-                    }
-                    break;
-            }
-            throw new Exception("Cannot unmarshal type EntityMediaId");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            var value = (EntityMediaId)untypedValue;
-            if (value.Integer != null)
-            {
-                serializer.Serialize(writer, value.Integer.Value.ToString());
-                return;
-            }
-            if (value.Uuid != null)
-            {
-                serializer.Serialize(writer, value.Uuid.Value.ToString("D", System.Globalization.CultureInfo.InvariantCulture));
-                return;
-            }
-            throw new Exception("Cannot marshal type EntityMediaId");
-        }
-
-        public static readonly EntityMediaIdConverter Singleton = new EntityMediaIdConverter();
-    }
-
-    internal class MediaTypeConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(MediaType) || t == typeof(MediaType?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            if (value == "Image")
-            {
-                return MediaType.Image;
-            }
-            throw new Exception("Cannot unmarshal type MediaType");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (MediaType)untypedValue;
-            if (value == MediaType.Image)
-            {
-                serializer.Serialize(writer, "Image");
-                return;
-            }
-            throw new Exception("Cannot marshal type MediaType");
-        }
-
-        public static readonly MediaTypeConverter Singleton = new MediaTypeConverter();
-    }
-
-    internal class StayLimitConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(StayLimit) || t == typeof(StayLimit?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
-            {
-                case "":
-                    return StayLimit.Empty;
-                case "14 Day Stay Limit":
-                    return StayLimit.The14DayStayLimit;
-                case "Day Use Only ":
-                    return StayLimit.DayUseOnly;
-            }
-            throw new Exception("Cannot unmarshal type StayLimit");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (StayLimit)untypedValue;
-            switch (value)
-            {
-                case StayLimit.Empty:
-                    serializer.Serialize(writer, "");
-                    return;
-                case StayLimit.The14DayStayLimit:
-                    serializer.Serialize(writer, "14 Day Stay Limit");
-                    return;
-                case StayLimit.DayUseOnly:
-                    serializer.Serialize(writer, "Day Use Only ");
-                    return;
-            }
-            throw new Exception("Cannot marshal type StayLimit");
-        }
-
-        public static readonly StayLimitConverter Singleton = new StayLimitConverter();
     }
 }
