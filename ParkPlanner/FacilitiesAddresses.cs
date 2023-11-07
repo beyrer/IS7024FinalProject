@@ -17,47 +17,8 @@ namespace ParkPlannerAddresses
 
     public partial class FacilitiesAddresses
     {
-        [JsonProperty("METADATA")]
-        public Metadata Metadata { get; set; }
-
-        [JsonProperty("RECDATA")]
-        public List<Recdatum> Recdata { get; set; }
-    }
-
-    public partial class Metadata
-    {
-        [JsonProperty("RESULTS")]
-        public Results Results { get; set; }
-
-        [JsonProperty("SEARCH_PARAMETERS")]
-        public SearchParameters SearchParameters { get; set; }
-    }
-
-    public partial class Results
-    {
-        [JsonProperty("CURRENT_COUNT")]
-        public long CurrentCount { get; set; }
-
-        [JsonProperty("TOTAL_COUNT")]
-        public long TotalCount { get; set; }
-    }
-
-    public partial class SearchParameters
-    {
-        [JsonProperty("LIMIT")]
-        public long Limit { get; set; }
-
-        [JsonProperty("OFFSET")]
-        public long Offset { get; set; }
-
-        [JsonProperty("QUERY")]
-        public string Query { get; set; }
-    }
-
-    public partial class Recdatum
-    {
         [JsonProperty("AddressCountryCode")]
-        public AddressCountryCodeUnion AddressCountryCode { get; set; }
+        public AddressCountryCode AddressCountryCode { get; set; }
 
         [JsonProperty("AddressStateCode")]
         public string AddressStateCode { get; set; }
@@ -66,7 +27,7 @@ namespace ParkPlannerAddresses
         public string City { get; set; }
 
         [JsonProperty("FacilityAddressID")]
-        public string FacilityAddressId { get; set; }
+        public FacilityAddressId FacilityAddressId { get; set; }
 
         [JsonProperty("FacilityAddressType")]
         public FacilityAddressType FacilityAddressType { get; set; }
@@ -79,10 +40,10 @@ namespace ParkPlannerAddresses
         public string FacilityStreetAddress1 { get; set; }
 
         [JsonProperty("FacilityStreetAddress2")]
-        public string FacilityStreetAddress2 { get; set; }
+        public FacilityStreetAddress2 FacilityStreetAddress2 { get; set; }
 
         [JsonProperty("FacilityStreetAddress3")]
-        public string FacilityStreetAddress3 { get; set; }
+        public FacilityStreetAddress3 FacilityStreetAddress3 { get; set; }
 
         [JsonProperty("LastUpdatedDate")]
         public DateTimeOffset LastUpdatedDate { get; set; }
@@ -91,27 +52,31 @@ namespace ParkPlannerAddresses
         public string PostalCode { get; set; }
     }
 
-    public enum AddressCountryCodeEnum { AddressCountryCodeUnitedStates, Empty, The3526952799, UnitedStates, Usa };
+    public enum AddressCountryCode { Usa };
 
     public enum FacilityAddressType { Default, Mailing, Physical };
 
-    public partial struct AddressCountryCodeUnion
-    {
-        public AddressCountryCodeEnum? Enum;
-        public long? Integer;
+    public enum FacilityStreetAddress2 { Empty, The171ShorelineDrive, The19000CavesHwy, The2000LogstonBlvd, The855Hwy101 };
 
-        public static implicit operator AddressCountryCodeUnion(AddressCountryCodeEnum Enum) => new AddressCountryCodeUnion { Enum = Enum };
-        public static implicit operator AddressCountryCodeUnion(long Integer) => new AddressCountryCodeUnion { Integer = Integer };
+    public enum FacilityStreetAddress3 { Empty, PoBox65 };
+
+    public partial struct FacilityAddressId
+    {
+        public long? Integer;
+        public Guid? Uuid;
+
+        public static implicit operator FacilityAddressId(long Integer) => new FacilityAddressId { Integer = Integer };
+        public static implicit operator FacilityAddressId(Guid Uuid) => new FacilityAddressId { Uuid = Uuid };
     }
 
     public partial class FacilitiesAddresses
     {
-        public static FacilitiesAddresses FromJson(string json) => JsonConvert.DeserializeObject<FacilitiesAddresses>(json, ParkPlannerAddresses.Converter.Settings);
+        public static List<FacilitiesAddresses> FromJson(string json) => JsonConvert.DeserializeObject<List<FacilitiesAddresses>>(json, ParkPlannerAddresses.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this FacilitiesAddresses self) => JsonConvert.SerializeObject(self, ParkPlannerAddresses.Converter.Settings);
+        public static string ToJson(this List<FacilitiesAddresses> self) => JsonConvert.SerializeObject(self, ParkPlannerAddresses.Converter.Settings);
     }
 
     internal static class Converter
@@ -122,105 +87,29 @@ namespace ParkPlannerAddresses
             DateParseHandling = DateParseHandling.None,
             Converters =
             {
-                AddressCountryCodeUnionConverter.Singleton,
-                AddressCountryCodeEnumConverter.Singleton,
+                AddressCountryCodeConverter.Singleton,
+                FacilityAddressIdConverter.Singleton,
                 FacilityAddressTypeConverter.Singleton,
+                FacilityStreetAddress2Converter.Singleton,
+                FacilityStreetAddress3Converter.Singleton,
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
     }
 
-    internal class AddressCountryCodeUnionConverter : JsonConverter
+    internal class AddressCountryCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(AddressCountryCodeUnion) || t == typeof(AddressCountryCodeUnion?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            switch (reader.TokenType)
-            {
-                case JsonToken.String:
-                case JsonToken.Date:
-                    var stringValue = serializer.Deserialize<string>(reader);
-                    switch (stringValue)
-                    {
-                        case "":
-                            return new AddressCountryCodeUnion { Enum = AddressCountryCodeEnum.Empty };
-                        case "(352) 695-2799":
-                            return new AddressCountryCodeUnion { Enum = AddressCountryCodeEnum.The3526952799 };
-                        case "UNITED STATES":
-                            return new AddressCountryCodeUnion { Enum = AddressCountryCodeEnum.AddressCountryCodeUnitedStates };
-                        case "USA":
-                            return new AddressCountryCodeUnion { Enum = AddressCountryCodeEnum.Usa };
-                        case "United States":
-                            return new AddressCountryCodeUnion { Enum = AddressCountryCodeEnum.UnitedStates };
-                    }
-                    long l;
-                    if (Int64.TryParse(stringValue, out l))
-                    {
-                        return new AddressCountryCodeUnion { Integer = l };
-                    }
-                    break;
-            }
-            throw new Exception("Cannot unmarshal type AddressCountryCodeUnion");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            var value = (AddressCountryCodeUnion)untypedValue;
-            if (value.Enum != null)
-            {
-                switch (value.Enum)
-                {
-                    case AddressCountryCodeEnum.Empty:
-                        serializer.Serialize(writer, "");
-                        return;
-                    case AddressCountryCodeEnum.The3526952799:
-                        serializer.Serialize(writer, "(352) 695-2799");
-                        return;
-                    case AddressCountryCodeEnum.AddressCountryCodeUnitedStates:
-                        serializer.Serialize(writer, "UNITED STATES");
-                        return;
-                    case AddressCountryCodeEnum.Usa:
-                        serializer.Serialize(writer, "USA");
-                        return;
-                    case AddressCountryCodeEnum.UnitedStates:
-                        serializer.Serialize(writer, "United States");
-                        return;
-                }
-            }
-            if (value.Integer != null)
-            {
-                serializer.Serialize(writer, value.Integer.Value.ToString());
-                return;
-            }
-            throw new Exception("Cannot marshal type AddressCountryCodeUnion");
-        }
-
-        public static readonly AddressCountryCodeUnionConverter Singleton = new AddressCountryCodeUnionConverter();
-    }
-
-    internal class AddressCountryCodeEnumConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(AddressCountryCodeEnum) || t == typeof(AddressCountryCodeEnum?);
+        public override bool CanConvert(Type t) => t == typeof(AddressCountryCode) || t == typeof(AddressCountryCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
             if (reader.TokenType == JsonToken.Null) return null;
             var value = serializer.Deserialize<string>(reader);
-            switch (value)
+            if (value == "USA")
             {
-                case "":
-                    return AddressCountryCodeEnum.Empty;
-                case "(352) 695-2799":
-                    return AddressCountryCodeEnum.The3526952799;
-                case "UNITED STATES":
-                    return AddressCountryCodeEnum.AddressCountryCodeUnitedStates;
-                case "USA":
-                    return AddressCountryCodeEnum.Usa;
-                case "United States":
-                    return AddressCountryCodeEnum.UnitedStates;
+                return AddressCountryCode.Usa;
             }
-            throw new Exception("Cannot unmarshal type AddressCountryCodeEnum");
+            throw new Exception("Cannot unmarshal type AddressCountryCode");
         }
 
         public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
@@ -230,29 +119,61 @@ namespace ParkPlannerAddresses
                 serializer.Serialize(writer, null);
                 return;
             }
-            var value = (AddressCountryCodeEnum)untypedValue;
-            switch (value)
+            var value = (AddressCountryCode)untypedValue;
+            if (value == AddressCountryCode.Usa)
             {
-                case AddressCountryCodeEnum.Empty:
-                    serializer.Serialize(writer, "");
-                    return;
-                case AddressCountryCodeEnum.The3526952799:
-                    serializer.Serialize(writer, "(352) 695-2799");
-                    return;
-                case AddressCountryCodeEnum.AddressCountryCodeUnitedStates:
-                    serializer.Serialize(writer, "UNITED STATES");
-                    return;
-                case AddressCountryCodeEnum.Usa:
-                    serializer.Serialize(writer, "USA");
-                    return;
-                case AddressCountryCodeEnum.UnitedStates:
-                    serializer.Serialize(writer, "United States");
-                    return;
+                serializer.Serialize(writer, "USA");
+                return;
             }
-            throw new Exception("Cannot marshal type AddressCountryCodeEnum");
+            throw new Exception("Cannot marshal type AddressCountryCode");
         }
 
-        public static readonly AddressCountryCodeEnumConverter Singleton = new AddressCountryCodeEnumConverter();
+        public static readonly AddressCountryCodeConverter Singleton = new AddressCountryCodeConverter();
+    }
+
+    internal class FacilityAddressIdConverter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(FacilityAddressId) || t == typeof(FacilityAddressId?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            switch (reader.TokenType)
+            {
+                case JsonToken.String:
+                case JsonToken.Date:
+                    var stringValue = serializer.Deserialize<string>(reader);
+                    long l;
+                    if (Int64.TryParse(stringValue, out l))
+                    {
+                        return new FacilityAddressId { Integer = l };
+                    }
+                    Guid guid;
+                    if (Guid.TryParse(stringValue, out guid))
+                    {
+                        return new FacilityAddressId { Uuid = guid };
+                    }
+                    break;
+            }
+            throw new Exception("Cannot unmarshal type FacilityAddressId");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            var value = (FacilityAddressId)untypedValue;
+            if (value.Integer != null)
+            {
+                serializer.Serialize(writer, value.Integer.Value.ToString());
+                return;
+            }
+            if (value.Uuid != null)
+            {
+                serializer.Serialize(writer, value.Uuid.Value.ToString("D", System.Globalization.CultureInfo.InvariantCulture));
+                return;
+            }
+            throw new Exception("Cannot marshal type FacilityAddressId");
+        }
+
+        public static readonly FacilityAddressIdConverter Singleton = new FacilityAddressIdConverter();
     }
 
     internal class FacilityAddressTypeConverter : JsonConverter
@@ -330,5 +251,102 @@ namespace ParkPlannerAddresses
         }
 
         public static readonly ParseStringConverter Singleton = new ParseStringConverter();
+    }
+
+    internal class FacilityStreetAddress2Converter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(FacilityStreetAddress2) || t == typeof(FacilityStreetAddress2?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            switch (value)
+            {
+                case "":
+                    return FacilityStreetAddress2.Empty;
+                case "171 Shoreline Drive":
+                    return FacilityStreetAddress2.The171ShorelineDrive;
+                case "19000 Caves Hwy":
+                    return FacilityStreetAddress2.The19000CavesHwy;
+                case "2000 Logston Blvd":
+                    return FacilityStreetAddress2.The2000LogstonBlvd;
+                case "855 HWY 101":
+                    return FacilityStreetAddress2.The855Hwy101;
+            }
+            throw new Exception("Cannot unmarshal type FacilityStreetAddress2");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (FacilityStreetAddress2)untypedValue;
+            switch (value)
+            {
+                case FacilityStreetAddress2.Empty:
+                    serializer.Serialize(writer, "");
+                    return;
+                case FacilityStreetAddress2.The171ShorelineDrive:
+                    serializer.Serialize(writer, "171 Shoreline Drive");
+                    return;
+                case FacilityStreetAddress2.The19000CavesHwy:
+                    serializer.Serialize(writer, "19000 Caves Hwy");
+                    return;
+                case FacilityStreetAddress2.The2000LogstonBlvd:
+                    serializer.Serialize(writer, "2000 Logston Blvd");
+                    return;
+                case FacilityStreetAddress2.The855Hwy101:
+                    serializer.Serialize(writer, "855 HWY 101");
+                    return;
+            }
+            throw new Exception("Cannot marshal type FacilityStreetAddress2");
+        }
+
+        public static readonly FacilityStreetAddress2Converter Singleton = new FacilityStreetAddress2Converter();
+    }
+
+    internal class FacilityStreetAddress3Converter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(FacilityStreetAddress3) || t == typeof(FacilityStreetAddress3?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            switch (value)
+            {
+                case "":
+                    return FacilityStreetAddress3.Empty;
+                case "PO Box 65":
+                    return FacilityStreetAddress3.PoBox65;
+            }
+            throw new Exception("Cannot unmarshal type FacilityStreetAddress3");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (FacilityStreetAddress3)untypedValue;
+            switch (value)
+            {
+                case FacilityStreetAddress3.Empty:
+                    serializer.Serialize(writer, "");
+                    return;
+                case FacilityStreetAddress3.PoBox65:
+                    serializer.Serialize(writer, "PO Box 65");
+                    return;
+            }
+            throw new Exception("Cannot marshal type FacilityStreetAddress3");
+        }
+
+        public static readonly FacilityStreetAddress3Converter Singleton = new FacilityStreetAddress3Converter();
     }
 }
