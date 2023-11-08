@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nabec\\OneDrive - University of Cincinnati\\Documents\\Graduate School\\IS7024 XML & WEB Srvs\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj": {}
+    "C:\\Users\\Jessie\\SkyDrive\\Desktop\\MSIS program\\IS7024 - XML and Web Services\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nabec\\OneDrive - University of Cincinnati\\Documents\\Graduate School\\IS7024 XML & WEB Srvs\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj": {
+    "C:\\Users\\Jessie\\SkyDrive\\Desktop\\MSIS program\\IS7024 - XML and Web Services\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nabec\\OneDrive - University of Cincinnati\\Documents\\Graduate School\\IS7024 XML & WEB Srvs\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
+        "projectUniqueName": "C:\\Users\\Jessie\\SkyDrive\\Desktop\\MSIS program\\IS7024 - XML and Web Services\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
         "projectName": "ParkPlanner",
-        "projectPath": "C:\\Users\\nabec\\OneDrive - University of Cincinnati\\Documents\\Graduate School\\IS7024 XML & WEB Srvs\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
-        "packagesPath": "C:\\Users\\nabec\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nabec\\OneDrive - University of Cincinnati\\Documents\\Graduate School\\IS7024 XML & WEB Srvs\\IS7024FinalProject\\ParkPlanner\\obj\\",
+        "projectPath": "C:\\Users\\Jessie\\SkyDrive\\Desktop\\MSIS program\\IS7024 - XML and Web Services\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
+        "packagesPath": "C:\\Users\\Jessie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jessie\\SkyDrive\\Desktop\\MSIS program\\IS7024 - XML and Web Services\\IS7024FinalProject\\ParkPlanner\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nabec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jessie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
