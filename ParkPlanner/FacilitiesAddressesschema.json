@@ -1,16 +1,75 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "type": "array",
-  "items": {
-    "$ref": "#/definitions/FacilitiesAddress"
-  },
+  "$ref": "#/definitions/FacilitiesAddresses",
   "definitions": {
-    "FacilitiesAddress": {
+    "FacilitiesAddresses": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "METADATA": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "RECDATA": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Recdatum"
+          }
+        }
+      },
+      "required": [],
+      "title": "FacilitiesAddresses"
+    },
+    "Metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "RESULTS": {
+          "$ref": "#/definitions/Results"
+        },
+        "SEARCH_PARAMETERS": {
+          "$ref": "#/definitions/SearchParameters"
+        }
+      },
+      "required": [],
+      "title": "Metadata"
+    },
+    "Results": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "CURRENT_COUNT": {
+          "type": "integer"
+        },
+        "TOTAL_COUNT": {
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "Results"
+    },
+    "SearchParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "LIMIT": {
+          "type": "integer"
+        },
+        "OFFSET": {
+          "type": "integer"
+        },
+        "QUERY": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "SearchParameters"
+    },
+    "Recdatum": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "AddressCountryCode": {
-          "$ref": "#/definitions/AddressCountryCode"
+          "$ref": "#/definitions/AddressCountryCodeUnion"
         },
         "AddressStateCode": {
           "type": "string"
@@ -19,7 +78,7 @@
           "type": "string"
         },
         "FacilityAddressID": {
-          "$ref": "#/definitions/FacilityAddressID"
+          "type": "string"
         },
         "FacilityAddressType": {
           "$ref": "#/definitions/FacilityAddressType"
@@ -32,10 +91,10 @@
           "type": "string"
         },
         "FacilityStreetAddress2": {
-          "$ref": "#/definitions/FacilityStreetAddress2"
+          "type": "string"
         },
         "FacilityStreetAddress3": {
-          "$ref": "#/definitions/FacilityStreetAddress3"
+          "type": "string"
         },
         "LastUpdatedDate": {
           "type": "string",
@@ -45,40 +104,31 @@
           "type": "string"
         }
       },
-      "required": [
-        "AddressCountryCode",
-        "AddressStateCode",
-        "City",
-        "FacilityAddressID",
-        "FacilityAddressType",
-        "FacilityID",
-        "FacilityStreetAddress1",
-        "FacilityStreetAddress2",
-        "FacilityStreetAddress3",
-        "LastUpdatedDate",
-        "PostalCode"
-      ],
-      "title": "FacilitiesAddress"
+      "required": [],
+      "title": "Recdatum"
     },
-    "FacilityAddressID": {
+    "AddressCountryCodeUnion": {
       "anyOf": [
         {
-          "type": "string",
-          "format": "integer"
+          "$ref": "#/definitions/AddressCountryCodeEnum"
         },
         {
           "type": "string",
-          "format": "uuid"
+          "format": "integer"
         }
       ],
-      "title": "FacilityAddressID"
+      "title": "AddressCountryCodeUnion"
     },
-    "AddressCountryCode": {
+    "AddressCountryCodeEnum": {
       "type": "string",
       "enum": [
-        "USA"
+        "USA",
+        "",
+        "United States",
+        "UNITED STATES",
+        "(352) 695-2799"
       ],
-      "title": "AddressCountryCode"
+      "title": "AddressCountryCodeEnum"
     },
     "FacilityAddressType": {
       "type": "string",
@@ -88,26 +138,6 @@
         "Mailing"
       ],
       "title": "FacilityAddressType"
-    },
-    "FacilityStreetAddress2": {
-      "type": "string",
-      "enum": [
-        "",
-        "855 HWY 101",
-        "19000 Caves Hwy",
-        "2000 Logston Blvd",
-        "171 Shoreline Drive"
-      ],
-      "title": "FacilityStreetAddress2"
-    },
-    "FacilityStreetAddress3": {
-      "type": "string",
-      "enum": [
-        "",
-        "PO Box 65"
-      ],
-      "title": "FacilityStreetAddress3"
     }
   }
 }
-

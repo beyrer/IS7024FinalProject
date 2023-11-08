@@ -17,7 +17,7 @@ namespace ParkPlanner.Pages
         public void OnGet()
         {
 
-            var task = client.GetAsync("https://ridb.recreation.gov/api/v1/facilityaddresses?limit=50&offset=0&apikey=4ae269f1-67d1-4fd4-9cb1-d3a343bb9045\r\n");
+            var task = client.GetAsync("https://ridb.recreation.gov/api/v1/facilityaddresses?limit=50&offset=0&apikey=4ae269f1-67d1-4fd4-9cb1-d3a343bb9045");
             HttpResponseMessage result = task.Result;
             IList<FacilitiesAddresses> facilitiesAddresses = new List<FacilitiesAddresses>();
             if (result.IsSuccessStatusCode)
