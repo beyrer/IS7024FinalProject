@@ -17,6 +17,24 @@ namespace ParkPlannerPark
 
     public partial class Park
     {
+        [JsonProperty("total")]
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long Total { get; set; }
+
+        [JsonProperty("limit")]
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long Limit { get; set; }
+
+        [JsonProperty("start")]
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long Start { get; set; }
+
+        [JsonProperty("data")]
+        public List<Datum> Data { get; set; }
+    }
+
+    public partial class Datum
+    {
         [JsonProperty("id")]
         public string Id { get; set; }
 
@@ -254,12 +272,12 @@ namespace ParkPlannerPark
 
     public partial class Park
     {
-        public static List<Park> FromJson(string json) => JsonConvert.DeserializeObject<List<Park>>(json, ParkPlannerPark.Converter.Settings);
+        public static Park FromJson(string json) => JsonConvert.DeserializeObject<Park>(json, ParkPlannerPark.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this List<Park> self) => JsonConvert.SerializeObject(self, ParkPlannerPark.Converter.Settings);
+        public static string ToJson(this Park self) => JsonConvert.SerializeObject(self, ParkPlannerPark.Converter.Settings);
     }
 
     internal static class Converter
@@ -397,5 +415,36 @@ namespace ParkPlannerPark
         }
 
         public static readonly PhoneNumberTypeConverter Singleton = new PhoneNumberTypeConverter();
+    }
+
+    internal class ParseStringConverter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(long) || t == typeof(long?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            long l;
+            if (Int64.TryParse(value, out l))
+            {
+                return l;
+            }
+            throw new Exception("Cannot unmarshal type long");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (long)untypedValue;
+            serializer.Serialize(writer, value.ToString());
+            return;
+        }
+
+        public static readonly ParseStringConverter Singleton = new ParseStringConverter();
     }
 }

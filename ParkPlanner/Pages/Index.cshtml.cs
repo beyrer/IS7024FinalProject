@@ -19,12 +19,12 @@ namespace ParkPlanner.Pages
 
             var task = client.GetAsync("https://developer.nps.gov/api/v1/parks?api_key=mLBONbm3NZfawfBoS0w4bXT3yyJ1nBpLhqh6o0Au\r\n");
             HttpResponseMessage result = task.Result;
-            List<Park> park = new List<Park>();
+            List<Datum> park = new List<Datum>();
             if (result.IsSuccessStatusCode)
             {
                 Task<string> readString = result.Content.ReadAsStringAsync();
                 string jsonString = readString.Result;
-                park = Park.FromJson(jsonString);
+                park = Park.FromJson(jsonString).Data;
 
             }
             ViewData["Park"] = park;
