@@ -57,19 +57,19 @@ namespace ParkPlanner
     public partial class Recdatum
     {
         [JsonProperty("ACTIVITY", NullValueHandling = NullValueHandling.Ignore)]
-        public List<object> Activity { get; set; }
+        public IEnumerable<object> Activity { get; set; }
 
         [JsonProperty("CAMPSITE", NullValueHandling = NullValueHandling.Ignore)]
-        public List<object> Campsite { get; set; }
+        public IEnumerable<object> Campsite { get; set; }
 
         [JsonProperty("EVENT", NullValueHandling = NullValueHandling.Ignore)]
-        public List<object> Event { get; set; }
+        public IEnumerable<object> Event { get; set; }
 
         [JsonProperty("Enabled", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Enabled { get; set; }
 
         [JsonProperty("FACILITYADDRESS", NullValueHandling = NullValueHandling.Ignore)]
-        public List<object> Facilityaddress { get; set; }
+        public IEnumerable<object> Facilityaddress { get; set; }
 
         [JsonProperty("FacilityAdaAccess", NullValueHandling = NullValueHandling.Ignore)]
         public FacilityAdaAccess? FacilityAdaAccess { get; set; }
@@ -85,7 +85,7 @@ namespace ParkPlanner
 
         [JsonProperty("FacilityID", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(ParseStringConverter))]
-        public long? FacilityId { get; set; }
+        public string FacilityId { get; set; }
 
         [JsonProperty("FacilityLatitude", NullValueHandling = NullValueHandling.Ignore)]
         public double? FacilityLatitude { get; set; }
@@ -118,7 +118,7 @@ namespace ParkPlanner
         public string Keywords { get; set; }
 
         [JsonProperty("LINK", NullValueHandling = NullValueHandling.Ignore)]
-        public List<object> Link { get; set; }
+        public IEnumerable<object> Link { get; set; }
 
         [JsonProperty("LastUpdatedDate", NullValueHandling = NullValueHandling.Ignore)]
         public DateTimeOffset? LastUpdatedDate { get; set; }
@@ -127,26 +127,26 @@ namespace ParkPlanner
         public string LegacyFacilityId { get; set; }
 
         [JsonProperty("MEDIA", NullValueHandling = NullValueHandling.Ignore)]
-        public List<Media> Media { get; set; }
+        public IEnumerable<Media> Media { get; set; }
 
         [JsonProperty("ORGANIZATION", NullValueHandling = NullValueHandling.Ignore)]
-        public List<object> Organization { get; set; }
+        public IEnumerable<object> Organization { get; set; }
 
         [JsonProperty("OrgFacilityID", NullValueHandling = NullValueHandling.Ignore)]
         public string OrgFacilityId { get; set; }
 
         [JsonProperty("PERMITENTRANCE", NullValueHandling = NullValueHandling.Ignore)]
-        public List<object> Permitentrance { get; set; }
+        public IEnumerable<object> Permitentrance { get; set; }
 
         [JsonProperty("ParentOrgID", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(ParseStringConverter))]
-        public long? ParentOrgId { get; set; }
+        public string ParentOrgId { get; set; }
 
         [JsonProperty("ParentRecAreaID", NullValueHandling = NullValueHandling.Ignore)]
         public string ParentRecAreaId { get; set; }
 
         [JsonProperty("RECAREA", NullValueHandling = NullValueHandling.Ignore)]
-        public List<object> Recarea { get; set; }
+        public IEnumerable<object> Recarea { get; set; }
 
         [JsonProperty("Reservable", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Reservable { get; set; }
@@ -155,7 +155,7 @@ namespace ParkPlanner
         public StayLimit? StayLimit { get; set; }
 
         [JsonProperty("TOUR", NullValueHandling = NullValueHandling.Ignore)]
-        public List<object> Tour { get; set; }
+        public IEnumerable<object> Tour { get; set; }
     }
 
     public partial class Geojson

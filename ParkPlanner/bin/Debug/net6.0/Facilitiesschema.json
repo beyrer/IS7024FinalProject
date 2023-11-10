@@ -1,0 +1,357 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Facilities",
+  "definitions": {
+    "Facilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "METADATA": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "RECDATA": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Recdatum"
+          }
+        }
+      },
+      "required": [],
+      "title": "Facilities"
+    },
+    "Metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "RESULTS": {
+          "$ref": "#/definitions/Results"
+        },
+        "SEARCH_PARAMETERS": {
+          "$ref": "#/definitions/SearchParameters"
+        }
+      },
+      "required": [],
+      "title": "Metadata"
+    },
+    "Results": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "CURRENT_COUNT": {
+          "type": "integer"
+        },
+        "TOTAL_COUNT": {
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "Results"
+    },
+    "SearchParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "LIMIT": {
+          "type": "integer"
+        },
+        "OFFSET": {
+          "type": "integer"
+        },
+        "QUERY": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "SearchParameters"
+    },
+    "Recdatum": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ACTIVITY": {
+          "type": "array",
+          "items": {}
+        },
+        "CAMPSITE": {
+          "type": "array",
+          "items": {}
+        },
+        "EVENT": {
+          "type": "array",
+          "items": {}
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "FACILITYADDRESS": {
+          "type": "array",
+          "items": {}
+        },
+        "FacilityAdaAccess": {
+          "$ref": "#/definitions/FacilityAdaAccess"
+        },
+        "FacilityDescription": {
+          "type": "string"
+        },
+        "FacilityDirections": {
+          "type": "string"
+        },
+        "FacilityEmail": {
+          "$ref": "#/definitions/FacilityEmail"
+        },
+        "FacilityID": {
+          "type": "string",
+          "format": "integer"
+        },
+        "FacilityLatitude": {
+          "type": "number"
+        },
+        "FacilityLongitude": {
+          "type": "number"
+        },
+        "FacilityMapURL": {
+          "type": "string",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".pdf"
+          ]
+        },
+        "FacilityName": {
+          "type": "string"
+        },
+        "FacilityPhone": {
+          "type": "string"
+        },
+        "FacilityReservationURL": {
+          "type": "string"
+        },
+        "FacilityTypeDescription": {
+          "$ref": "#/definitions/FacilityTypeDescription"
+        },
+        "FacilityUseFeeDescription": {
+          "type": "string"
+        },
+        "GEOJSON": {
+          "$ref": "#/definitions/Geojson"
+        },
+        "Keywords": {
+          "type": "string"
+        },
+        "LINK": {
+          "type": "array",
+          "items": {}
+        },
+        "LastUpdatedDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "LegacyFacilityID": {
+          "type": "string"
+        },
+        "MEDIA": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Media"
+          }
+        },
+        "ORGANIZATION": {
+          "type": "array",
+          "items": {}
+        },
+        "OrgFacilityID": {
+          "type": "string"
+        },
+        "PERMITENTRANCE": {
+          "type": "array",
+          "items": {}
+        },
+        "ParentOrgID": {
+          "type": "string",
+          "format": "integer"
+        },
+        "ParentRecAreaID": {
+          "type": "string"
+        },
+        "RECAREA": {
+          "type": "array",
+          "items": {}
+        },
+        "Reservable": {
+          "type": "boolean"
+        },
+        "StayLimit": {
+          "$ref": "#/definitions/StayLimit"
+        },
+        "TOUR": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [],
+      "title": "Recdatum"
+    },
+    "Geojson": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "COORDINATES": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "TYPE": {
+          "$ref": "#/definitions/Type"
+        }
+      },
+      "required": [],
+      "title": "Geojson"
+    },
+    "Media": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Credits": {
+          "$ref": "#/definitions/Credits"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "EmbedCode": {
+          "type": "string"
+        },
+        "EntityID": {
+          "type": "string",
+          "format": "integer"
+        },
+        "EntityMediaID": {
+          "$ref": "#/definitions/EntityMediaID"
+        },
+        "EntityType": {
+          "$ref": "#/definitions/FacilityTypeDescription"
+        },
+        "Height": {
+          "type": "integer"
+        },
+        "IsGallery": {
+          "type": "boolean"
+        },
+        "IsPreview": {
+          "type": "boolean"
+        },
+        "IsPrimary": {
+          "type": "boolean"
+        },
+        "MediaType": {
+          "$ref": "#/definitions/MediaType"
+        },
+        "Subtitle": {
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "URL": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".jpeg",
+            ".jpg"
+          ]
+        },
+        "Width": {
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "Media"
+    },
+    "EntityMediaID": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "integer"
+        },
+        {
+          "type": "string",
+          "format": "uuid"
+        }
+      ],
+      "title": "EntityMediaID"
+    },
+    "FacilityAdaAccess": {
+      "type": "string",
+      "enum": [
+        "",
+        "N",
+        "Ada Accessible Restrooms "
+      ],
+      "title": "FacilityAdaAccess"
+    },
+    "FacilityEmail": {
+      "type": "string",
+      "enum": [
+        "",
+        "sm.fs.mrnra@usda.gov",
+        "gjfo_webmail@blm.gov",
+        "info@si.edu",
+        "Kfo_webmail.@blm.gov"
+      ],
+      "title": "FacilityEmail"
+    },
+    "FacilityTypeDescription": {
+      "type": "string",
+      "enum": [
+        "Facility",
+        "Campground"
+      ],
+      "title": "FacilityTypeDescription"
+    },
+    "Type": {
+      "type": "string",
+      "enum": [
+        "Point",
+        ""
+      ],
+      "title": "Type"
+    },
+    "Credits": {
+      "type": "string",
+      "enum": [
+        "PGE Parks",
+        "",
+        "Michael J Tuttle",
+        "Landis"
+      ],
+      "title": "Credits"
+    },
+    "MediaType": {
+      "type": "string",
+      "enum": [
+        "Image"
+      ],
+      "title": "MediaType"
+    },
+    "StayLimit": {
+      "type": "string",
+      "enum": [
+        "",
+        "14 Day Stay Limit",
+        "Day Use Only "
+      ],
+      "title": "StayLimit"
+    }
+  }
+}
