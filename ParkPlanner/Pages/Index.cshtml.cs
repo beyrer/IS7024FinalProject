@@ -8,26 +8,42 @@ namespace ParkPlanner.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        private readonly ConfigurationResolver _configurationResolver;
         static readonly HttpClient client = new HttpClient();
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILogger<IndexModel> logger,
+            ConfigurationResolver configurationResolver)
         {
             _logger = logger;
+            _configurationResolver = configurationResolver;
         }
 
         public void OnGet()
         {
-
-            var task = client.GetAsync("https://developer.nps.gov/api/v1/parks?api_key=mLBONbm3NZfawfBoS0w4bXT3yyJ1nBpLhqh6o0Au\r\n");
-            HttpResponseMessage result = task.Result;
-            List<Datum> park = new List<Datum>();
-            if (result.IsSuccessStatusCode)
+            
+            try
             {
-                Task<string> readString = result.Content.ReadAsStringAsync();
-                string jsonString = readString.Result;
-                park = Park.FromJson(jsonString).Data;
+                var URL = _configurationResolver.GetConfiguration("npsURL");
+                var task = client.GetAsync(URL);
+                HttpResponseMessage result = task.Result;
+                List<Datum> park = new List<Datum>();
+                if (result.IsSuccessStatusCode)
+                {
+                    Task<string> readString = result.Content.ReadAsStringAsync();
+                    string jsonString = readString.Result;
+                    park = Park.FromJson(jsonString).Data;
 
+                }
+                else
+                {
+                    _logger.LogInformation("Http Request Failure", result.StatusCode);
+                }
+                ViewData["Park"] = park;
             }
-            ViewData["Park"] = park;
+            catch (Exception)
+            {
+
+                ViewData["ErrorMessage"] = "Http Call and JSON Parsing resulted in an Exception";
+            }
 
         }
 
