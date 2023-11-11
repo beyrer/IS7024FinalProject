@@ -152,3 +152,15 @@ C:\Users\Jessie\SkyDrive\Desktop\MSIS program\IS7024 - XML and Web Services\IS70
 C:\Users\Jessie\SkyDrive\Desktop\MSIS program\IS7024 - XML and Web Services\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.pdb
 C:\Users\Jessie\SkyDrive\Desktop\MSIS program\IS7024 - XML and Web Services\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.genruntimeconfig.cache
 C:\Users\Jessie\SkyDrive\Desktop\MSIS program\IS7024 - XML and Web Services\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ref\ParkPlanner.dll
+C:\Users\bbrao\Source\Repos\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.csproj.AssemblyReference.cache
+C:\Users\bbrao\Source\Repos\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bbrao\Source\Repos\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.AssemblyInfoInputs.cache
+C:\Users\bbrao\Source\Repos\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.AssemblyInfo.cs
+C:\Users\bbrao\Source\Repos\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.csproj.CoreCompileInputs.cache
+C:\Users\bbrao\Source\Repos\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\bbrao\Source\Repos\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\bbrao\Source\Repos\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.RazorAssemblyInfo.cache
+C:\Users\bbrao\Source\Repos\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.RazorAssemblyInfo.cs
+C:\Users\bbrao\Source\Repos\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.dll
+C:\Users\bbrao\Source\Repos\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\refint\ParkPlanner.dll
+C:\Users\bbrao\Source\Repos\IS7024FinalProject\ParkPlanner\obj\Debug\net6.0\ParkPlanner.pdb

@@ -22,8 +22,21 @@ namespace ParkPlanner.Pages
             List<Datum> park = new List<Datum>();
             if (result.IsSuccessStatusCode)
             {
-                Task<string> readString = result.Content.ReadAsStringAsync();
-                string jsonString = readString.Result;
+                public async Task OnGet()
+{
+    var result = await client.GetAsync("https://developer.nps.gov/api/v1/parks?api_key=mLBONbm3NZfawfBoS0w4bXT3yyJ1nBpLhqh6o0Au");
+
+    if (result.IsSuccessStatusCode)
+    {
+        var jsonString = await result.Content.ReadAsStringAsync();
+        List<Datum> park = Park.FromJson(jsonString).Data;
+        ViewData["Park"] = park;
+    }
+    else
+    {
+        // Handle non-success status code
+    }
+}
                 park = Park.FromJson(jsonString).Data;
 
             }
