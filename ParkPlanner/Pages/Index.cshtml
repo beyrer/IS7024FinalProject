@@ -3,7 +3,7 @@
 @using ParkPlannerPark
 @{
     ViewData["Title"] = "Home page";
-    List<Datum> park = (List<Datum>)ViewData["Park"];
+    List<Datum> parks = (List<Datum>)ViewData["Park"];
 }
 
 <div class="text-center">
@@ -12,13 +12,15 @@
     <img src="https://user-images.githubusercontent.com/88552005/277193898-3a55302a-d57f-4ee4-86c3-15473b3e651e.jpg" alt="Park Planner" width="500">
     <table>
         <tr>
-            <th>Park ID</th>
+            <th>Park Name</th>
+            <th>Park view</th>
         </tr>
         @{
-            foreach (Datum parks in park)
+            foreach (Datum park in parks)
             {
                 <tr>
-                    <th>@parks.Id</th>
+                    <td>@park.Name</td>
+                    <td><img src=@park.Images[0].Url alt="Image" width="40" height="40"></td>
                 </tr>
             }
         }
