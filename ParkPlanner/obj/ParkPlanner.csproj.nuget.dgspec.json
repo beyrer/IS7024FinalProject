@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bbrao\\Source\\Repos\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj": {}
+    "C:\\Users\\bbrao\\source\\repos\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bbrao\\Source\\Repos\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj": {
+    "C:\\Users\\bbrao\\source\\repos\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bbrao\\Source\\Repos\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
+        "projectUniqueName": "C:\\Users\\bbrao\\source\\repos\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
         "projectName": "ParkPlanner",
-        "projectPath": "C:\\Users\\bbrao\\Source\\Repos\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
+        "projectPath": "C:\\Users\\bbrao\\source\\repos\\IS7024FinalProject\\ParkPlanner\\ParkPlanner.csproj",
         "packagesPath": "C:\\Users\\bbrao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bbrao\\Source\\Repos\\IS7024FinalProject\\ParkPlanner\\obj\\",
+        "outputPath": "C:\\Users\\bbrao\\source\\repos\\IS7024FinalProject\\ParkPlanner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
