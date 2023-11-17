@@ -16,17 +16,26 @@ namespace ParkPlanner.Pages
 
         public void OnGet()
         {
-
-            var task = client.GetAsync("https://developer.nps.gov/api/v1/parks?api_key=mLBONbm3NZfawfBoS0w4bXT3yyJ1nBpLhqh6o0Au\r\n");
-            HttpResponseMessage result = task.Result;
             List<Datum> park = new List<Datum>();
-            if (result.IsSuccessStatusCode)
+            try
             {
-                Task<string> readString = result.Content.ReadAsStringAsync();
-                string jsonString = readString.Result;
-                park = Park.FromJson(jsonString).Data;
+                var task = client.GetAsync("https://developer.nps.gov/api/v1/parks?api_key=mLBONbm3NZfawfBoS0w4bXT3yyJ1nBpLhqh6o0Au\r\n");
+                HttpResponseMessage result = task.Result;
 
+                if (result.IsSuccessStatusCode)
+                {
+                    Task<string> readString = result.Content.ReadAsStringAsync();
+                    string jsonString = readString.Result;
+                    park = Park.FromJson(jsonString).Data;
+
+                }
             }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error during API call - Housing", ex);
+            }
+
+
             ViewData["Park"] = park;
 
         }
