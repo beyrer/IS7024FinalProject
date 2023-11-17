@@ -51,10 +51,10 @@ namespace ParkPlannerPark
         public string Description { get; set; }
 
         [JsonProperty("latitude")]
-        public string Latitude { get; set; }
+        public double Latitude { get; set; }
 
         [JsonProperty("longitude")]
-        public string Longitude { get; set; }
+        public double Longitude { get; set; }
 
         [JsonProperty("latLong")]
         public string LatLong { get; set; }
@@ -126,7 +126,7 @@ namespace ParkPlannerPark
         public string City { get; set; }
 
         [JsonProperty("stateCode")]
-        public string StateCode { get; set; }
+        public StateCode StateCode { get; set; }
 
         [JsonProperty("countryCode")]
         public CountryCode CountryCode { get; set; }
@@ -269,6 +269,8 @@ namespace ParkPlannerPark
     public enum AddressType { Mailing, Physical };
 
     public enum PhoneNumberType { Fax, Tty, Voice };
+
+    public enum StateCode {  };                                                               
 
     public partial class Park
     {
