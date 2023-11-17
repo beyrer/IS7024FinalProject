@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ParkPlanner;
 using ParkPlanner.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddSingleton<ConfigurationResolver>();
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
